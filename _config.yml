@@ -4,7 +4,7 @@ description: >-
   SEITO is an independent fashion department based in Taiwan,
   meaning "grooming and dressing up" in Taiwanese.
 url: "https://seito-official.com"
-baseurl: "/seito-site"
+baseurl: ""
 lang: zh-Hant
 timezone: Asia/Taipei
 instagram: https://www.instagram.com/seito__official/
