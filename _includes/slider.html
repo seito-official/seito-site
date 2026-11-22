@@ -1,0 +1,15 @@
+<section class="slider js-gallery" aria-label="圖集">
+  <div class="slider-track">
+    {% for g in page.gallery %}
+    <figure class="slide">
+      <img src="{{ g.src | default: g | relative_url }}" alt="{{ g.caption | default: page.title | escape }}" loading="lazy">
+      {% if g.caption %}<figcaption>{{ g.caption }}</figcaption>{% endif %}
+    </figure>
+    {% endfor %}
+  </div>
+  <div class="slider-nav">
+    <button type="button" class="slider-prev" aria-label="上一張">&larr;</button>
+    <span class="slider-count">{{ page.gallery.size }} images</span>
+    <button type="button" class="slider-next" aria-label="下一張">&rarr;</button>
+  </div>
+</section>

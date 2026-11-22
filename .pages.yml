@@ -1,0 +1,117 @@
+# Pages CMS 後台設定：決定上稿表單長什麼樣子
+media:
+  input: assets/uploads
+  output: /assets/uploads
+
+content:
+  - name: posts
+    label: 文章 Stories
+    type: collection
+    path: _posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, category, date]
+    fields:
+      - { name: title, label: 標題, type: string, required: true }
+      - { name: date, label: 發布日期, type: date }
+      - { name: dek, label: 導言（一句話）, type: text }
+      - name: category
+        label: 分類
+        type: select
+        options:
+          values: [Fashion, Culture, Music, Interview, Event, Series]
+      - { name: author, label: 作者, type: string, default: SEITO 編輯部 }
+      - { name: photographer, label: 攝影, type: string }
+      - name: style
+        label: 排版樣式
+        type: select
+        options:
+          values: [interleave, gallery]
+        description: interleave＝圖文穿插（長文）；gallery＝短文＋可滑動圖集
+      - { name: thumb, label: 列表封面（可放有標題字的設計圖卡）, type: image }
+      - { name: cover, label: 文章開頭大圖（乾淨的照片）, type: image }
+      - { name: cover_video, label: 文章開頭影片（選填，取代大圖）, type: file }
+      - name: gallery
+        label: 圖集（gallery 樣式用）
+        type: object
+        list: true
+        fields:
+          - { name: src, label: 圖片, type: image }
+          - { name: caption, label: 圖說, type: string }
+      - { name: cover_caption, label: 封面圖說, type: string }
+      - { name: featured, label: 放到首頁頭條, type: boolean, default: false }
+      - { name: body, label: 內文, type: rich-text }
+
+  - name: events
+    label: 活動紀錄 Events
+    type: collection
+    path: _events
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, type, date]
+    fields:
+      - { name: title, label: 活動名稱, type: string, required: true }
+      - { name: date, label: 活動日期（排序用）, type: date }
+      - { name: event_date, label: 顯示日期（例：October 17, 2026）, type: string }
+      - name: type
+        label: 類型
+        type: select
+        options:
+          values: [Talk Session, Pop-up, Party, Collaboration, Exhibition]
+      - { name: venue, label: 地點, type: string }
+      - { name: partner, label: 合作對象, type: string }
+      - { name: dek, label: 一句介紹, type: text }
+      - { name: thumb, label: 列表封面（例如活動海報）, type: image }
+      - { name: cover, label: 頁面開頭大圖, type: image }
+      - { name: poster, label: 活動海報（放在文字旁）, type: image }
+      - { name: video, label: 活動影片（選填）, type: file }
+      - { name: gallery, label: 活動照片（照順序排成攝影集）, type: image, list: true }
+      - { name: body, label: 活動紀錄內文, type: rich-text }
+
+  - name: merch
+    label: Merch Archive
+    type: collection
+    path: _merch
+    filename: "{primary}.md"
+    view:
+      fields: [title, number, year]
+    fields:
+      - { name: title, label: 品項名稱, type: string, required: true }
+      - name: category
+        label: 分類
+        type: select
+        options:
+          values: [Apparel, Print, Goods]
+      - { name: number, label: 編號（例：No. 03）, type: string }
+      - { name: order, label: 排列順序（數字越小越前面）, type: number }
+      - { name: year, label: 年份, type: string }
+      - { name: release, label: 發售日期, type: string }
+      - { name: collaborator, label: 合作對象, type: string }
+      - { name: material, label: 材質, type: string }
+      - { name: images, label: 照片（第一張是封面）, type: image, list: true }
+      - { name: body, label: 品項故事, type: rich-text }
+
+  - name: projects
+    label: Creative 專案
+    type: collection
+    path: _projects
+    filename: "{primary}.md"
+    view:
+      fields: [title, client, year]
+    fields:
+      - { name: title, label: 專案名稱, type: string, required: true }
+      - { name: client, label: 客戶／品牌, type: string }
+      - { name: services, label: 負責項目（例：Creative Direction, Production）, type: string }
+      - { name: year, label: 年份, type: string }
+      - { name: order, label: 排列順序（數字越小越前面）, type: number }
+      - { name: cover, label: 封面圖, type: image }
+      - { name: images, label: 照片, type: image, list: true }
+      - { name: reels, label: IG Reels 連結（貼上網址）, type: string, list: true }
+      - name: credits
+        label: 工作人員名單
+        type: object
+        list: true
+        fields:
+          - { name: role, label: 職務, type: string }
+          - { name: name, label: 名字／IG 帳號, type: string }
+      - { name: body, label: 專案介紹, type: rich-text }

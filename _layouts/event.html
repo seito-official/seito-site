@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<article class="article event style-{{ page.style | default: 'interleave' }}">
+  <header class="article-head">
+    <span class="kicker">{{ page.type | default: "Event" }}</span>
+    <h1>{{ page.title }}</h1>
+    {% if page.dek %}<p class="dek">{{ page.dek }}</p>{% endif %}
+    <p class="article-meta">
+      {% if page.event_date %}<span>{{ page.event_date }}</span>{% endif %}
+      {% if page.venue %}<span>{{ page.venue }}</span>{% endif %}
+      {% if page.partner %}<span>with <strong>{{ page.partner }}</strong></span>{% endif %}
+    </p>
+  </header>
+
+  {% include hero.html %}
+
+  {% if page.poster %}
+  <div class="event-intro">
+    <div class="article-body js-gallery">{{ content }}</div>
+    <aside class="event-poster js-gallery"><img src="{{ page.poster | relative_url }}" alt="{{ page.title | escape }} poster" loading="lazy"></aside>
+  </div>
+  {% else %}
+  <div class="article-body js-gallery">{{ content }}</div>
+  {% endif %}
+
+  {% if page.video %}
+  <figure class="event-video">
+    <video src="{{ page.video | relative_url }}" poster="{{ page.video | replace: '.mp4', '.jpg' | relative_url }}" controls playsinline preload="metadata"></video>
+  </figure>
+  {% endif %}
+
+  {% if page.gallery %}
+  <section class="essay js-gallery" aria-label="活動照片">
+    {% for g in page.gallery %}
+    {% assign m = forloop.index0 | modulo: 5 %}
+    <figure class="essay-item {% if m == 0 %}is-wide{% endif %}">
+      <img src="{{ g | relative_url }}" alt="{{ page.title | escape }}" loading="lazy">
+    </figure>
+    {% endfor %}
+  </section>
+  {% endif %}
+</article>

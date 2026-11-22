@@ -1,0 +1,11 @@
+{% if page.cover_video %}
+<figure class="article-hero hero-video">
+  <video src="{{ page.cover_video | relative_url }}" poster="{{ page.thumb | relative_url }}" autoplay muted loop playsinline></video>
+  {% if page.cover_caption %}<figcaption>{{ page.cover_caption }}</figcaption>{% endif %}
+</figure>
+{% elsif page.cover %}
+<figure class="article-hero">
+  <img src="{{ page.cover | relative_url }}" alt="{{ page.title | escape }}">
+  {% if page.cover_caption %}<figcaption>{{ page.cover_caption }}</figcaption>{% endif %}
+</figure>
+{% endif %}

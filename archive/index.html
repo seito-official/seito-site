@@ -1,0 +1,24 @@
+---
+layout: default
+title: Archive
+---
+<div class="container">
+  <header class="page-head">
+    <h1>Archive</h1>
+    <p>SEITO 歷年出版品與 merch 的典藏。</p>
+  </header>
+  {% assign merch_sorted = site.merch | sort: "order" %}
+  <div class="grid grid-3">
+    {% for m in merch_sorted %}
+    <a class="card merch-card" href="{{ m.url | relative_url }}">
+      <div class="card-media ratio-45 has-swap">
+        <img src="{{ m.images[0] | relative_url }}" alt="" loading="lazy">
+        {% if m.images[1] %}<img class="swap" src="{{ m.images[1] | relative_url }}" alt="" loading="lazy">{% endif %}
+      </div>
+      <span class="kicker">{{ m.category | default: "Merch" }}{% if m.number %} · {{ m.number }}{% endif %}</span>
+      <span class="card-title">{{ m.title }}</span>
+      {% if m.year %}<span class="byline">{{ m.year }}</span>{% endif %}
+    </a>
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<article class="article style-{{ page.style | default: 'interleave' }}">
+  <header class="article-head">
+    <span class="kicker">{{ page.category | default: "Story" }}</span>
+    <h1>{{ page.title }}</h1>
+    {% if page.dek %}<p class="dek">{{ page.dek }}</p>{% endif %}
+    <p class="article-meta">
+      <span>Words by <strong>{{ page.author | default: "SEITO 編輯部" }}</strong></span>
+      {% if page.photographer %}<span>Photography by <strong>{{ page.photographer }}</strong></span>{% endif %}
+      <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+    </p>
+  </header>
+
+  {% if page.style == "gallery" %}
+    <div class="article-body js-gallery">
+      {{ content }}
+    </div>
+    {% include slider.html %}
+  {% else %}
+    {% include hero.html %}
+    <div class="article-body js-gallery">
+      {{ content }}
+    </div>
+  {% endif %}
+</article>
+
+<section class="read-next">
+  <h2 class="section-title">Read Next</h2>
+  <div class="grid grid-3">
+    {% assign shown = 0 %}
+    {% for item in site.posts %}
+      {% if item.url != page.url and shown < 3 %}
+        {% assign card_ratio = "45" %}
+        {% include card.html %}
+        {% assign shown = shown | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

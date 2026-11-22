@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<article class="merch-detail">
+  <div class="merch-gallery js-gallery">
+    {% for img in page.images %}
+    <figure class="{% if forloop.first %}is-lead{% endif %}">
+      <img src="{{ img | relative_url }}" alt="{{ page.title | escape }} {{ forloop.index }}" {% unless forloop.first %}loading="lazy"{% endunless %}>
+    </figure>
+    {% endfor %}
+  </div>
+  <aside class="merch-info">
+    <div class="merch-info-inner">
+      <span class="kicker">{{ page.category | default: "Merch" }}{% if page.number %} · {{ page.number }}{% endif %}</span>
+      <h1>{{ page.title }}</h1>
+      {% if page.year or page.release or page.collaborator or page.material %}
+      <dl class="spec">
+        {% if page.year %}<dt>Year</dt><dd>{{ page.year }}</dd>{% endif %}
+        {% if page.release %}<dt>Release</dt><dd>{{ page.release }}</dd>{% endif %}
+        {% if page.collaborator %}<dt>With</dt><dd>{{ page.collaborator }}</dd>{% endif %}
+        {% if page.material %}<dt>Material</dt><dd>{{ page.material }}</dd>{% endif %}
+      </dl>
+      {% endif %}
+      <div class="merch-story">{{ content }}</div>
+      <a class="text-link" href="{{ '/archive/' | relative_url }}">&larr; Back to Archive</a>
+    </div>
+  </aside>
+</article>

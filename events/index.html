@@ -1,0 +1,25 @@
+---
+layout: default
+title: Events
+---
+<div class="container">
+  <header class="page-head">
+    <h1>Events</h1>
+    <p>從一個數位計畫走到實體社群。SEITO 辦過、參與過的講座、快閃與派對。</p>
+  </header>
+  {% assign events_sorted = site.events | sort: "date" | reverse %}
+  {% if events_sorted.size > 0 %}
+  <div class="grid grid-3">
+    {% for e in events_sorted %}
+    <a class="card" href="{{ e.url | relative_url }}">
+      <div class="card-media ratio-45">{% assign epic = e.thumb | default: e.cover %}{% if epic %}<img src="{{ epic | relative_url }}" alt="" loading="lazy">{% else %}<span class="img-placeholder">SEITO</span>{% endif %}</div>
+      <span class="kicker">{{ e.type | default: "Event" }}</span>
+      <span class="card-title">{{ e.title }}</span>
+      <span class="byline">{{ e.event_date }}{% if e.venue %} · {{ e.venue }}{% endif %}{% if e.partner %} · with {{ e.partner }}{% endif %}</span>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="empty">活動紀錄整理中。</p>
+  {% endif %}
+</div>

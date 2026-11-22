@@ -1,0 +1,43 @@
+title: SEITO
+tagline: for the People, the Community and the Culture
+description: >-
+  SEITO is an independent fashion department based in Taiwan,
+  meaning "grooming and dressing up" in Taiwanese.
+url: "https://seito-official.com"
+baseurl: "/seito-site"
+lang: zh-Hant
+timezone: Asia/Taipei
+instagram: https://www.instagram.com/seito__official/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+permalink: /stories/:title/
+
+collections:
+  events:
+    output: true
+    permalink: /events/:name/
+  merch:
+    output: true
+    permalink: /archive/:name/
+  projects:
+    output: true
+    permalink: /creative/:name/
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+  - scope: { path: "", type: events }
+    values: { layout: event }
+  - scope: { path: "", type: merch }
+    values: { layout: merch }
+  - scope: { path: "", type: projects }
+    values: { layout: project }
+
+exclude:
+  - README.md
+  - seito-apps-script.txt
+  - .pages.yml

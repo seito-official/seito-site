@@ -1,0 +1,17 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="{{ '/assets/img/logo-black.png' | relative_url }}" alt="SEITO" width="897" height="332" loading="lazy">
+      <p>Founded in 2021 and pronounced [se-do], SEITO is an independent fashion department based in Taiwan, meaning "grooming and dressing up" in Taiwanese.</p>
+    </div>
+    <nav class="footer-nav" aria-label="頁尾選單">
+      <a href="{{ '/stories/' | relative_url }}">Stories</a>
+    <a href="{{ '/creative/' | relative_url }}">Creative</a>
+      <a href="{{ '/events/' | relative_url }}">Events</a>
+      <a href="{{ '/archive/' | relative_url }}">Archive</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </div>
+  <p class="footer-meta">© {{ site.time | date: "%Y" }} SEITO · {{ site.tagline }}</p>
+</footer>

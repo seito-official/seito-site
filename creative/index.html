@@ -1,0 +1,24 @@
+---
+layout: default
+title: Creative
+---
+<div class="container">
+  <header class="page-head">
+    <h1>Creative</h1>
+    <p>SEITO 為品牌與創作者企劃、製作的拍攝與內容專案。</p>
+  </header>
+  {% assign plist = site.projects | sort: "order" %}
+  <div class="grid grid-2">
+    {% for p in plist %}
+    <a class="card project-card" href="{{ p.url | relative_url }}">
+      <div class="card-media ratio-45 has-swap">
+        <img src="{{ p.cover | relative_url }}" alt="" loading="lazy">
+        {% if p.images[1] %}<img class="swap" src="{{ p.images[1] | relative_url }}" alt="" loading="lazy">{% endif %}
+      </div>
+      <span class="kicker">{{ p.client }}{% if p.year %} · {{ p.year }}{% endif %}</span>
+      <span class="card-title">{{ p.title }}</span>
+      {% if p.services %}<span class="byline">{{ p.services }}</span>{% endif %}
+    </a>
+    {% endfor %}
+  </div>
+</div>

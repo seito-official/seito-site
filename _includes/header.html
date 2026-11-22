@@ -1,0 +1,22 @@
+<header class="site-header" id="site-header">
+  <div class="header-top">
+    <nav class="header-left" aria-label="快速連結">
+      <a href="{{ '/stories/' | relative_url }}">Latest</a>
+      <a href="{{ '/archive/' | relative_url }}">Archive</a>
+    </nav>
+    <a class="logo" href="{{ '/' | relative_url }}" aria-label="SEITO 首頁">
+      <img src="{{ '/assets/img/logo-black.png' | relative_url }}" alt="SEITO" width="897" height="332">
+    </a>
+    <div class="header-right">
+      <a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    </div>
+  </div>
+  <nav class="site-nav" id="site-nav" aria-label="主選單">
+    <a href="{{ '/stories/' | relative_url }}">Stories</a>
+    <a href="{{ '/creative/' | relative_url }}">Creative</a>
+    <a href="{{ '/events/' | relative_url }}">Events</a>
+    <a href="{{ '/archive/' | relative_url }}">Archive</a>
+    <a href="{{ '/about/' | relative_url }}">About</a>
+  </nav>
+</header>

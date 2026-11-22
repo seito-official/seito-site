@@ -1,0 +1,66 @@
+---
+layout: default
+---
+<article class="project">
+  <header class="article-head">
+    <span class="kicker">Creative{% if page.year %} · {{ page.year }}{% endif %}</span>
+    <h1>{{ page.title }}</h1>
+    <p class="article-meta">
+      {% if page.client %}<span>Client <strong>{{ page.client }}</strong></span>{% endif %}
+      {% if page.services %}<span>{{ page.services }}</span>{% endif %}
+    </p>
+  </header>
+
+  {% if page.cover %}
+  <figure class="article-hero"><img src="{{ page.cover | relative_url }}" alt="{{ page.title | escape }}"></figure>
+  {% endif %}
+
+  {% assign body = content | strip %}
+  {% if body != "" %}
+  <div class="article-body project-body">{{ content }}</div>
+  {% endif %}
+
+  {% if page.reels and page.reels.size > 0 %}
+  <section class="project-reels">
+    <h2 class="section-title">Reels</h2>
+    <div class="reels-grid">
+      {% for r in page.reels %}
+      <blockquote class="instagram-media" data-instgrm-permalink="{{ r }}" data-instgrm-version="14"><a href="{{ r }}" target="_blank" rel="noopener">Watch on Instagram</a></blockquote>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <div class="project-gallery js-gallery">
+    {% for img in page.images %}{% unless img == page.cover %}
+    <figure><img src="{{ img | relative_url }}" alt="{{ page.title | escape }}" loading="lazy"></figure>
+    {% endunless %}{% endfor %}
+  </div>
+
+  {% if page.credits %}
+  <section class="project-credits">
+    <h2 class="kicker">Credits</h2>
+    <dl class="spec">
+      {% for c in page.credits %}<dt>{{ c.role }}</dt><dd>{{ c.name }}</dd>{% endfor %}
+    </dl>
+  </section>
+  {% endif %}
+</article>
+
+<section class="read-next">
+  <div class="section-head">
+    <h2 class="section-title">More Creative</h2>
+    <a class="text-link" href="{{ '/creative/' | relative_url }}">All projects</a>
+  </div>
+  <div class="grid grid-3">
+    {% assign plist = site.projects | sort: "order" %}
+    {% for p in plist %}{% if p.url != page.url %}
+    <a class="card" href="{{ p.url | relative_url }}">
+      <div class="card-media ratio-45"><img src="{{ p.cover | relative_url }}" alt="" loading="lazy"></div>
+      <span class="kicker">{{ p.client }}</span>
+      <span class="card-title">{{ p.title }}</span>
+    </a>
+    {% endif %}{% endfor %}
+  </div>
+</section>
+{% if page.reels and page.reels.size > 0 %}<script async src="https://www.instagram.com/embed.js"></script>{% endif %}
