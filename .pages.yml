@@ -88,6 +88,10 @@ content:
       - { name: release, label: 發售日期, type: string }
       - { name: collaborator, label: 合作對象, type: string }
       - { name: material, label: 材質, type: string }
+      - { name: price, label: 售價（例：NT$1,680；不賣就留空）, type: string }
+      - { name: buy_url, label: 購買連結（留空就不會出現購買按鈕）, type: string }
+      - { name: buy_label, label: 購買按鈕文字, type: string }
+      - { name: buy_note, label: 購買按鈕下方小字, type: string }
       - { name: images, label: 照片（第一張是封面）, type: image, list: true }
       - { name: body, label: 品項故事, type: rich-text }
 

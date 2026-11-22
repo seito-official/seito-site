@@ -1,13 +1,17 @@
 title: SEITO
 tagline: for the People, the Community and the Culture
 description: >-
-  SEITO is an independent fashion department based in Taiwan,
-  meaning "grooming and dressing up" in Taiwanese.
+  SEITO 是臺語「梳妝打扮」的諧音，2021 年創立於臺灣的獨立時尚媒體，
+  呈現時尚、創意與社群。For the People, the Community and the Culture.
+og_image: /assets/img/og-default.jpg
 url: "https://seito-official.com"
 baseurl: ""
 lang: zh-Hant
 timezone: Asia/Taipei
 instagram: https://www.instagram.com/seito__official/
+
+plugins:
+  - jekyll-sitemap
 
 markdown: kramdown
 kramdown:

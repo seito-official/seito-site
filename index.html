@@ -74,6 +74,7 @@ body_class: home
         <div class="card-media ratio-45"><img src="{{ m.images[0] | relative_url }}" alt="" loading="lazy"></div>
         <span class="kicker">{{ m.category | default: "Merch" }}</span>
         <span class="card-title">{{ m.title }}</span>
+        {% if m.buy_url %}<span class="badge">Available now</span>{% endif %}
       </a>
       {% endfor %}
     </div>

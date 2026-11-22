@@ -13,6 +13,13 @@ layout: default
     <div class="merch-info-inner">
       <span class="kicker">{{ page.category | default: "Merch" }}{% if page.number %} · {{ page.number }}{% endif %}</span>
       <h1>{{ page.title }}</h1>
+      {% if page.buy_url %}
+      <div class="buy-box">
+        {% if page.price %}<span class="buy-price">{{ page.price }}</span>{% endif %}
+        <a class="buy-button" href="{{ page.buy_url | relative_url }}">{{ page.buy_label | default: "立即購買" }} <span aria-hidden="true">&rarr;</span></a>
+        {% if page.buy_note %}<span class="buy-note">{{ page.buy_note }}</span>{% endif %}
+      </div>
+      {% endif %}
       {% if page.year or page.release or page.collaborator or page.material %}
       <dl class="spec">
         {% if page.year %}<dt>Year</dt><dd>{{ page.year }}</dd>{% endif %}

@@ -257,6 +257,24 @@ button { font: inherit; color: inherit; }
 .project-credits .kicker { margin: 0 0 12px; }
 .project-credits .spec { grid-template-columns: 160px 1fr; }
 
+/* buy box (merch that is on sale) */
+.buy-box { display: flex; flex-direction: column; gap: 10px; padding: 20px 0 4px; }
+.buy-price { font-size: 22px; font-weight: 900; letter-spacing: -.01em; }
+.buy-button {
+  display: inline-flex; align-items: center; justify-content: space-between; gap: 16px;
+  min-height: 56px; padding: 0 24px; background: #88271d; color: #fff;
+  font-size: 16px; font-weight: 700; letter-spacing: .02em;
+  transition: background .2s, transform .2s;
+}
+.buy-button:hover { background: #000; color: #fff; text-decoration: none; }
+.buy-button span { transition: transform .25s var(--ease); }
+.buy-button:hover span { transform: translateX(4px); }
+.buy-note { font-size: 13px; color: var(--ink-3); }
+.badge {
+  display: inline-block; width: fit-content; padding: 3px 8px; background: #88271d; color: #fff;
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+}
+
 /* ---------- about ---------- */
 .about-body { max-width: 760px; margin: 0 auto; padding-bottom: 96px; font-size: 19px; line-height: 1.8; }
 .about-lead { font-size: 28px; font-weight: 700; line-height: 1.4; letter-spacing: -.01em; }

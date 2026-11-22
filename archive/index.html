@@ -17,7 +17,7 @@ title: Archive
       </div>
       <span class="kicker">{{ m.category | default: "Merch" }}{% if m.number %} · {{ m.number }}{% endif %}</span>
       <span class="card-title">{{ m.title }}</span>
-      {% if m.year %}<span class="byline">{{ m.year }}</span>{% endif %}
+      {% if m.buy_url %}<span class="badge">Available now</span>{% elsif m.year %}<span class="byline">{{ m.year }}</span>{% endif %}
     </a>
     {% endfor %}
   </div>

@@ -4,10 +4,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% if page.title %}{{ page.title }} | {% endif %}SEITO</title>
-<meta name="description" content="{% if page.dek %}{{ page.dek | escape }}{% else %}{{ site.description | strip }}{% endif %}">
-<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}SEITO{% endif %}">
+{% assign desc = page.dek | default: site.description | strip_newlines | strip %}
+{% assign share_img = page.cover | default: page.images[0] | default: site.og_image %}
+<meta name="description" content="{{ desc | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
 <meta property="og:site_name" content="SEITO">
-{% if page.cover %}<meta property="og:image" content="{{ page.cover | absolute_url }}">{% endif %}
+<meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}SEITO{% endif %}">
+<meta property="og:description" content="{{ desc | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ share_img | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/icon-32.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/img/icon-512.png' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/img/icon-180.png' | relative_url }}">
+<meta name="theme-color" content="#88271d">
+{% if page.url == "/" %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"SEITO","url":"{{ site.url }}","logo":"{{ '/assets/img/icon-512.png' | absolute_url }}","image":"{{ site.og_image | absolute_url }}","sameAs":["{{ site.instagram }}"],"email":"info@seito-official.com"}
+</script>
+{% endif %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
