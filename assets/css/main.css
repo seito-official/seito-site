@@ -323,6 +323,7 @@ button { font: inherit; color: inherit; }
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .merch-detail { grid-template-columns: 1fr; }
   .merch-info-inner { position: static; }
+  .merch-info { order: -1; }
 }
 @media (max-width: 680px) {
   :root { --gutter: 16px; }
