@@ -1,6 +1,7 @@
 ---
 title: 日本女高中生一張「被打飛」照片，成為 2013 年最傻的網路遊戲
 dek: 在日本原本叫「魔貫光殺砲」，紅到國外後，甚至舉辦起「波動拳」照片比賽。
+section: article
 category: Culture
 author: SEITO 編輯部
 featured: false

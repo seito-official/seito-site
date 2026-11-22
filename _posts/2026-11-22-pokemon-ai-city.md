@@ -1,6 +1,7 @@
 ---
 title: 當神奇寶貝住進城市街景？！
 dek: 這波 AI 創作內容熱潮，或許也反映著我們小時候看世界的方式。
+section: article
 category: Culture
 author: SEITO 編輯部
 featured: true

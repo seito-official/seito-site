@@ -1,0 +1,24 @@
+<div class="container">
+  <header class="page-head">
+    <h1>Stories</h1>
+    <p>{{ list_intro | default: "SEITO 的專訪、人物誌與文章。" }}</p>
+  </header>
+  <nav class="filter-bar" aria-label="Stories 分類">
+    <a class="filter{% if list_key == nil or list_key == '' %} is-active{% endif %}" href="{{ '/stories/' | relative_url }}">全部</a>
+    {% for s in site.sections %}
+    <a class="filter{% if list_key == s.key %} is-active{% endif %}" href="{{ s.path | relative_url }}">{{ s.label }}</a>
+    {% endfor %}
+  </nav>
+  {% assign shown = 0 %}
+  <div class="grid grid-3">
+    {% for item in site.posts %}
+      {% assign item_key = item.section | default: "article" %}
+      {% if list_key == nil or list_key == "" or item_key == list_key %}
+        {% assign card_ratio = "45" %}
+        {% include card.html %}
+        {% assign shown = shown | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% if shown == 0 %}<p class="empty">{{ list_empty | default: "即將登場。" }}</p>{% endif %}
+</div>

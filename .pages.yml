@@ -15,6 +15,12 @@ content:
       - { name: title, label: 標題, type: string, required: true }
       - { name: date, label: 發布日期, type: date }
       - { name: dek, label: 導言（一句話）, type: text }
+      - name: section
+        label: Stories 分類
+        type: select
+        options:
+          values: [interview, profile, article]
+        description: interview＝專訪；profile＝人物誌；article＝文章
       - name: category
         label: 分類
         type: select

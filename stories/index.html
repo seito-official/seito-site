@@ -2,22 +2,5 @@
 layout: default
 title: Stories
 ---
-<div class="container">
-  <header class="page-head">
-    <h1>Stories</h1>
-    <p>SEITO 的專題、評論與訪談。</p>
-  </header>
-  <div class="filter-bar" role="group" aria-label="文章分類">
-    <button type="button" class="filter is-active" data-filter="all">All</button>
-    {% assign cats = site.posts | map: "category" | uniq %}
-    {% for c in cats %}{% if c %}<button type="button" class="filter" data-filter="{{ c }}">{{ c }}</button>{% endif %}{% endfor %}
-  </div>
-  <div class="grid grid-3 js-filterable">
-    {% for item in site.posts %}
-    <div class="filter-item" data-category="{{ item.category }}">
-      {% assign card_ratio = "45" %}
-      {% include card.html %}
-    </div>
-    {% endfor %}
-  </div>
-</div>
+{% assign list_key = "" %}
+{% include story-list.html %}

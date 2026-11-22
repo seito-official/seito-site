@@ -7,4 +7,4 @@ seito-official.com 的網站原始檔（Jekyll + GitHub Pages）。
 - Creative 專案：`_projects/`
 - Merch Archive：`_merch/`
 - 上稿後台設定：`.pages.yml`（Pages CMS）
-- 舊版 Issue 001 頁面與結帳頁：`issue-001.html`、`seito-checkout.html`
+- 舊版 Issue 001 頁面與結帳頁：`issue-001/`、`seito-checkout.html`

@@ -1,6 +1,7 @@
 ---
 title: 舞臺、音樂、穿搭都有人討論，但你注意過他們的麥克風嗎？
 dek: 從鑲滿寶石的金屬雕花，到意想不到的怪奇造型，歌手們把麥克風變成了配件。
+section: article
 category: Music
 author: SEITO 編輯部
 featured: false

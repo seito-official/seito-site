@@ -2,7 +2,8 @@
   <div class="card-media{% if card_ratio %} ratio-{{ card_ratio }}{% endif %}">
     {% assign pic = item.thumb | default: item.cover %}{% if pic %}<img src="{{ pic | relative_url }}" alt="" loading="lazy">{% else %}<span class="img-placeholder">SEITO</span>{% endif %}
   </div>
-  <span class="kicker">{{ item.category | default: "Story" }}</span>
+  {% assign sec = site.sections | where: "key", item.section | first %}
+  <span class="kicker">{% if sec and item.section != "article" %}{{ sec.label }} · {% endif %}{{ item.category | default: "Story" }}</span>
   <span class="card-title">{{ item.title }}</span>
   {% if item.dek %}<span class="card-dek">{{ item.dek }}</span>{% endif %}
   <span class="byline">{{ item.author | default: "SEITO 編輯部" }}</span>

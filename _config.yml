@@ -20,6 +20,12 @@ kramdown:
 
 permalink: /stories/:title/
 
+# Stories 底下的小分類
+sections:
+  - { key: interview, label: 專訪, en: Interviews, path: /stories/interviews/ }
+  - { key: profile, label: 人物誌, en: Profiles, path: /stories/profiles/ }
+  - { key: article, label: 文章, en: Articles, path: /stories/articles/ }
+
 collections:
   events:
     output: true

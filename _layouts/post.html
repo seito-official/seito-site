@@ -3,7 +3,8 @@ layout: default
 ---
 <article class="article style-{{ page.style | default: 'interleave' }}">
   <header class="article-head">
-    <span class="kicker">{{ page.category | default: "Story" }}</span>
+    {% assign sec = site.sections | where: "key", page.section | first %}
+    <span class="kicker">{% if sec %}<a href="{{ sec.path | relative_url }}">{{ sec.label }}</a> · {% endif %}{{ page.category | default: "Story" }}</span>
     <h1>{{ page.title }}</h1>
     {% if page.dek %}<p class="dek">{{ page.dek }}</p>{% endif %}
     <p class="article-meta">
